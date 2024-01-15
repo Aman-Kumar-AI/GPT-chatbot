@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugging Face Chatbot</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e; /* Dark background color */
+            color: #fff; /* Light text color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.9); /* Dark background color with transparency */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Light shadow */
+        }
+
+        .chat-header {
+            background-color: #61dafb;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .chat-body {
+            padding: 15px;
+        }
+
+        .user-input {
+            width: calc(100% - 30px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1); /* Light background color with transparency */
+            color: #fff; /* Light text color */
+        }
+
+        .send-button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #61dafb;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .send-button:hover {
+            background: #4fa3d1;
+        }
+
+        .bot-response {
+            margin-top: 20px;
+            color: #fff; /* Light text color */
+        }
+        .note {
+            margin-top: 20px;
+            color: #ffb3b3
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            Open Chatbot
+        </div>
+        <div class="chat-body">
+            <form action="/chat" method="POST">
+                <textarea name="user_input" rows="5" placeholder="Type your message here" class="user-input"></textarea>
+                <button type="submit" class="send-button">Send</button>
+            </form>
+            <p class="bot-response">You: {{ user_input }}</p>
+            <p class="bot-response">Chatbot: {{ bot_response }}</p>
+            <p class="note">{{ note }}</p>
+        </div>
+    </div>
+</body>
+</html>
